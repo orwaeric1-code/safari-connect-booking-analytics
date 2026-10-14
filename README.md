@@ -59,3 +59,20 @@ These issues were considered during data preparation and validation to improve c
 The project workflow included staging the source data, assessing data quality, cleaning inconsistent values, validating the prepared data, and using SQL queries and analytical views to support business analysis.
 
 The specific cleaning and validation steps are documented in the project's SQL scripts.
+
+## SQL Data Cleaning and Validation
+
+PostgreSQL was used to prepare the booking data for analysis. DBeaver was used as the database development environment for executing SQL statements and inspecting results.
+
+The workflow included the following stages:
+
+1. **Staging:** Load the source data into a staging table before applying cleaning transformations.
+2. **Data inspection:** Examine records, column values, missing values, duplicate identifiers, and inconsistent formats.
+3. **Data cleaning:** Standardize date formats, text values, fare formatting, and other identified data-quality issues.
+4. **Data validation:** Run SQL checks to assess the consistency and validity of the prepared data.
+5. **Production table preparation:** Store the prepared booking data in the analytical database table.
+6. **Analytical preparation:** Use SQL queries, views, and indexes to support the business analysis.
+
+The validation stage is important because successful execution of a cleaning query does not, by itself, prove that the resulting data is correct.
+
+The detailed SQL statements and validation results will be documented in the repository's SQL scripts.
