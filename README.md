@@ -31,4 +31,31 @@ This project explores these questions using booking data to support evidence-bas
 
 ## Project Status
 
-The SQL analysis and Power BI dashboard have been developed. This repository is being documented to present the project workflow, analytical findings, dashboard, and business recommendations.
+The SQL analysis and Power BI dashboard have been developed. This repository documents the project workflow, analytical findings, dashboard, and business recommendations.
+
+## Dataset Description
+
+The project uses bus and matatu booking data that includes information on bookings, passengers, routes, vehicles, drivers, travel dates, seat selections, fares, payment methods, booking statuses, and trip ratings.
+
+The dataset supports analysis of transportation operations, revenue performance, customer booking patterns, and trip outcomes.
+
+## Data Quality Assessment
+
+Before conducting the analysis, the dataset was assessed for quality issues that could affect the reliability of the results.
+
+The issues identified included:
+
+- **Duplicate records:** A duplicate booking ID was identified during the initial assessment.
+- **Missing values:** Some passenger phone numbers, passenger cities, and trip ratings were missing.
+- **Inconsistent date formats:** Travel-date values used different formats and required standardization.
+- **Inconsistent text values:** Some categorical values, including booking statuses and seat classes, had inconsistent capitalization or formatting.
+- **Inconsistent fare formatting:** Some fare values contained currency text such as `KES`.
+- **Invalid values:** The initial assessment identified a negative seat-booking value and a trip rating outside the expected range.
+
+These issues were considered during data preparation and validation to improve consistency and support reliable analysis.
+
+## Data Preparation Approach
+
+The project workflow included staging the source data, assessing data quality, cleaning inconsistent values, validating the prepared data, and using SQL queries and analytical views to support business analysis.
+
+The specific cleaning and validation steps are documented in the project's SQL scripts.
