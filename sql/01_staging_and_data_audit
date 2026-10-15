@@ -1,0 +1,118 @@
+-- ============================================================
+-- SAFARI CONNECT - BUS & MATATU BOOKING PLATFORM
+-- File: 01_staging_and_data_audit.sql
+-- Purpose: Create the staging table and audit raw imported data
+-- ============================================================
+
+-- 1. Create the project schema
+CREATE SCHEMA IF NOT EXISTS safari_connect;
+
+SET search_path TO safari_connect;
+
+-- 2. Create the staging table
+-- TEXT columns allow inconsistent source values to be imported
+-- before data cleaning and type validation.
+
+CREATE TABLE IF NOT EXISTS booking_staging (
+    booking_id TEXT,
+    passenger_name TEXT,
+    passenger_phone TEXT,
+    passenger_gender TEXT,
+    passenger_city TEXT,
+    route_code TEXT,
+    route_from TEXT,
+    route_to TEXT,
+    vehicle_plate TEXT,
+    vehicle_type TEXT,
+    driver_name TEXT,
+    driver_rating TEXT,
+    departure_date TEXT,
+    departure_time TEXT,
+    seat_class TEXT,
+    seats_booked TEXT,
+    fare_per_seat TEXT,
+    total_fare TEXT,
+    payment_method TEXT,
+    booking_status TEXT,
+    trip_rating TEXT
+);
+
+-- 3. Verify the imported data
+SELECT COUNT(*) AS total_staging_rows
+FROM booking_staging;
+
+SELECT *
+FROM booking_staging;
+
+-- ============================================================
+-- 4. DATA QUALITY AUDIT
+-- Run these queries before cleaning the source data.
+-- ============================================================
+
+-- 4.1 Passenger name variations
+SELECT DISTINCT passenger_name
+FROM booking_staging
+ORDER BY passenger_name
+LIMIT 15;
+
+-- 4.2 Gender variations
+SELECT passenger_gender, COUNT(*) AS row_count
+FROM booking_staging
+GROUP BY passenger_gender
+ORDER BY passenger_gender;
+
+-- 4.3 Seat class variations
+SELECT seat_class, COUNT(*) AS row_count
+FROM booking_staging
+GROUP BY seat_class
+ORDER BY seat_class;
+
+-- 4.4 Payment method variations
+SELECT DISTINCT payment_method
+FROM booking_staging
+ORDER BY payment_method;
+
+-- 4.5 Booking status variations
+SELECT DISTINCT booking_status
+FROM booking_staging
+ORDER BY booking_status;
+
+-- 4.6 Departure dates that do not match YYYY-MM-DD
+SELECT booking_id, departure_date
+FROM booking_staging
+WHERE departure_date !~ '^[0-9]{4}-[0-9]{2}-[0-9]{2}$';
+
+-- 4.7 Phone numbers containing a country code or dashes
+SELECT booking_id, passenger_phone
+FROM booking_staging
+WHERE passenger_phone LIKE '+254%'
+   OR passenger_phone LIKE '%-%';
+
+-- 4.8 Fares containing currency text
+SELECT booking_id, total_fare, fare_per_seat
+FROM booking_staging
+WHERE total_fare LIKE '%KES%'
+   OR fare_per_seat LIKE '%KES%';
+
+-- 4.9 Invalid trip ratings
+SELECT booking_id, trip_rating
+FROM booking_staging
+WHERE NULLIF(TRIM(trip_rating), '') IS NOT NULL
+  AND TRIM(trip_rating) NOT IN ('1', '2', '3', '4', '5');
+
+-- 4.10 Duplicate booking IDs
+SELECT booking_id, COUNT(*) AS duplicate_count
+FROM booking_staging
+GROUP BY booking_id
+HAVING COUNT(*) > 1;
+
+-- 4.11 Invalid or non-positive seat counts
+SELECT booking_id, seats_booked
+FROM booking_staging
+WHERE NULLIF(
+    REGEXP_REPLACE(TRIM(seats_booked), '[^0-9-]', '', 'g'),
+    ''
+)::INTEGER < 1;
+
+-- End of staging and data audit.
+-- Data cleaning is documented in 02_data_cleaning.sql.
