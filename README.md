@@ -102,3 +102,29 @@ The workflow included the following stages:
 The validation stage is important because successful execution of a cleaning query does not, by itself, prove that the resulting data is correct.
 
 The detailed SQL statements and validation results will be documented in the repository's SQL scripts.
+
+## Repository Structure
+
+```text
+safari-connect/
+├── images/
+│   └── safari-connect-dashboard.png
+├── sql/
+│   ├── 01_staging_and_data_audit.sql
+│   ├── 02_data_cleaning.sql
+│   ├── 03_validation_and_final_table.sql
+│   ├── 04_analytical_queries.sql
+│   ├── 05_views_and_indexes.sql
+│   └── README.md
+└── README.md
+```
+
+## Skills Demonstrated
+
+- SQL data auditing and cleaning
+- Data validation and quality checks
+- PostgreSQL views, window functions, aggregations, and indexing
+- Business analysis and KPI development
+- Power BI dashboard development and data visualization
+- Translating analytical findings into business recommendations
+- Technical documentation using GitHub and Markdown
