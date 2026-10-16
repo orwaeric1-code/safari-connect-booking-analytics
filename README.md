@@ -12,6 +12,26 @@ The project uses SQL and PostgreSQL for data preparation and analysis, and Micro
 
 The interactive report was developed in Power BI to explore booking performance, completed-trip revenue, route and driver performance, customer ratings, and cancellations.
 
+## Key Business Findings
+
+The analysis of Safari Connect booking data revealed the following:
+
+- **Completed-trip revenue:** KES 227.81K from 253 completed trips.
+- **Seat bookings:** 452 seats booked across completed trips.
+- **Customer experience:** Average trip rating of 3.53 out of 5.
+- **Booking outcomes:** 21 cancelled bookings and 14 no-shows, alongside 253 completed bookings.
+- **Route performance:** Nairobi–Mombasa generated the highest revenue at approximately KES 52K, followed by Nairobi–Eldoret at KES 43K and Nairobi–Kisumu at KES 38K.
+- **Vehicle performance:** Matatus generated approximately KES 88K, buses KES 85K, and minibuses KES 55K in completed-trip revenue.
+
+## Business Recommendations
+
+1. **Prioritize high-performing routes:** Review capacity allocation and service frequency on high-revenue routes while monitoring demand and operating costs.
+2. **Investigate cancellations and no-shows:** Examine patterns by route, departure time, and booking status to identify opportunities to improve booking completion.
+3. **Improve customer satisfaction:** Investigate lower-rated trips and use customer feedback to identify service improvements.
+4. **Measure profitability:** Combine revenue with fuel, maintenance, staffing, and other operating expenses before making route or vehicle investment decisions.
+
+*Note: Revenue figures describe completed trips. Fares associated with cancelled bookings or no-shows are not necessarily confirmed financial losses.*
+
 ## Business Problem
 
 Transportation businesses need reliable information to understand which routes generate the most revenue, how drivers and vehicles perform, how customers use booking services, and how cancellations and no-shows affect booking outcomes.
