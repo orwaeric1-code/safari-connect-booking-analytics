@@ -6,6 +6,12 @@ Safari Connect is an end-to-end data analytics portfolio project focused on anal
 
 The project uses SQL and PostgreSQL for data preparation and analysis, and Microsoft Power BI to develop an interactive dashboard that presents key performance indicators and business insights.
 
+## Power BI Dashboard
+
+![Safari Connect Power BI Dashboard](images/safari-connect-dashboard.png)
+
+The interactive report was developed in Power BI to explore booking performance, completed-trip revenue, route and driver performance, customer ratings, and cancellations.
+
 ## Business Problem
 
 Transportation businesses need reliable information to understand which routes generate the most revenue, how drivers and vehicles perform, how customers use booking services, and how cancellations and no-shows affect booking outcomes.
