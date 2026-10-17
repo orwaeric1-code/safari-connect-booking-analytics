@@ -106,7 +106,7 @@ The detailed SQL statements and validation results will be documented in the rep
 ## Repository Structure
 
 ```text
-safari-connect/
+safari-connect-booking-analytics/
 ├── images/
 │   └── safari-connect-dashboard.png
 ├── sql/
