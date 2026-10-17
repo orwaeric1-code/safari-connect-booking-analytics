@@ -121,10 +121,9 @@ safari-connect-booking-analytics/
 
 ## Skills Demonstrated
 
-- SQL data auditing and cleaning
-- Data validation and quality checks
-- PostgreSQL views, window functions, aggregations, and indexing
-- Business analysis and KPI development
-- Power BI dashboard development and data visualization
-- Translating analytical findings into business recommendations
-- Technical documentation using GitHub and Markdown
+- **SQL & Database Management:** PostgreSQL, data cleaning, data validation, joins, aggregations, window functions, views, and indexing.
+- **Data Analysis:** KPI development, route and driver performance analysis, revenue trends, cancellation analysis, and passenger insights.
+- **Business Intelligence:** Power BI dashboard development, data visualization, data modelling, and interactive reporting.
+- **Data Quality & Critical Thinking:** Identifying inconsistencies, validating analytical results, and checking data accuracy.
+- **Technical Documentation:** GitHub repository management, Markdown documentation, and reproducible analytical workflows.
+- **Business Communication:** Translating analytical findings into practical recommendations for decision-makers.
